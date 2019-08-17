@@ -1,0 +1,26 @@
+{
+  "name": "structures-and-algorithms",
+  "version": "0.0.1",
+  "description": "Collection of data structures and algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smiles21/structures-and-algorithms.git"
+  },
+  "keywords": [
+    "data-structures",
+    "algorithms"
+  ],
+  "author": "smiles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smiles21/structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/smiles21/structures-and-algorithms#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}

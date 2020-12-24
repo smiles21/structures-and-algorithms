@@ -17,10 +17,10 @@ Remove the top element from the top of the Stack and return it.  Calling `pop` o
 
 ### `peek()`
 
-Return the top element of the stack but do not remove it.  Calling `peek` on an empty Stack returns `undefined`.
+Return the top element of the Stack but do not remove it.  Calling `peek` on an empty Stack returns `undefined`.
 
 ### `isEmpty()`
 
-Return `true` if the stack has no elements in it, `false` if there is at least
+Return `true` if the Stack has no elements in it, `false` if there is at least
 one element
 

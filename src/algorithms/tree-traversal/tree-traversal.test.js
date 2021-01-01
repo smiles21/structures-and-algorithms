@@ -1,3 +1,4 @@
+const breadthFirstSearch = require('./breadth-first-search');
 const inOrderTraversal = require('./binary-in-order');
 const postOrderTraversal = require('./binary-post-order');
 const preOrderTraversal = require('./binary-pre-order');
@@ -11,6 +12,21 @@ class BinaryTreeNode {
     this.value = value;
     this.left = left;
     this.right = right;
+  }
+}
+
+class TreeNode {
+  constructor(value, neighbors = []) {
+    this.value = value;
+    this.neighbors = neighbors;
+  }
+
+  addNeighbors(nodes) {
+    if (!nodes) {
+      return;
+    }
+
+    this.neighbors.push(...nodes);
   }
 }
 
@@ -128,5 +144,62 @@ describe('Tree Traversals', () => {
 
     postOrderTraversal(root, append(items));
     expect(items).toEqual([1, 4, 3, 6, 7, 5]);
+  });
+
+  test('breadth-first-search zero nodes', () => {
+    const items = [];
+    const initialNode = null;
+
+    breadthFirstSearch(initialNode, append(items));
+    expect(items).toEqual([]);
+  });
+
+  test('breadth-first-search single node', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+
+    breadthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A']);
+  });
+
+  test('breadth-first-search single neighbor', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const neighbor = new TreeNode('B', [initialNode]);
+    initialNode.addNeighbors([neighbor]);
+
+    breadthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'B']);
+  });
+
+  test('breadth-first-search linear tree', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const middleNode = new TreeNode('B');
+    const lastNode = new TreeNode('C');
+    initialNode.addNeighbors([middleNode]);
+    middleNode.addNeighbors([initialNode, lastNode]);
+    lastNode.addNeighbors([middleNode]);
+
+    breadthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'B', 'C']);
+  });
+
+  test('breadth-first-search multi-node tree', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const bNode = new TreeNode('B');
+    const cNode = new TreeNode('C');
+    const dNode = new TreeNode('D');
+    const eNode = new TreeNode('E');
+    const fNode = new TreeNode('F');
+    const gNode = new TreeNode('G');
+
+    initialNode.addNeighbors([bNode, cNode]);
+    bNode.addNeighbors([dNode, eNode]);
+    cNode.addNeighbors([fNode, gNode]);
+
+    breadthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G']);
   });
 });

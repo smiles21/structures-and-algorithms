@@ -1,4 +1,5 @@
 const breadthFirstSearch = require('./breadth-first-search');
+const depthFirstSearch = require('./depth-first-search');
 const inOrderTraversal = require('./binary-in-order');
 const postOrderTraversal = require('./binary-post-order');
 const preOrderTraversal = require('./binary-pre-order');
@@ -201,5 +202,62 @@ describe('Tree Traversals', () => {
 
     breadthFirstSearch(initialNode, append(items));
     expect(items).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G']);
+  });
+
+  test('depth-first-search zero nodes', () => {
+    const items = [];
+    const initialNode = null;
+
+    depthFirstSearch(initialNode, append(items));
+    expect(items).toEqual([]);
+  });
+
+  test('depth-first-search single node', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+
+    depthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A']);
+  });
+
+  test('depth-first-search single neighbor', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const neighbor = new TreeNode('B', [initialNode]);
+    initialNode.addNeighbors([neighbor]);
+
+    depthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'B']);
+  });
+
+  test('depth-first-search linear tree', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const middleNode = new TreeNode('B');
+    const lastNode = new TreeNode('C');
+    initialNode.addNeighbors([middleNode]);
+    middleNode.addNeighbors([initialNode, lastNode]);
+    lastNode.addNeighbors([middleNode]);
+
+    depthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'B', 'C']);
+  });
+
+  test('depth-first-search multi-node tree', () => {
+    const items = [];
+    const initialNode = new TreeNode('A');
+    const bNode = new TreeNode('B');
+    const cNode = new TreeNode('C');
+    const dNode = new TreeNode('D');
+    const eNode = new TreeNode('E');
+    const fNode = new TreeNode('F');
+    const gNode = new TreeNode('G');
+
+    initialNode.addNeighbors([bNode, cNode]);
+    bNode.addNeighbors([dNode, eNode]);
+    cNode.addNeighbors([fNode, gNode]);
+
+    depthFirstSearch(initialNode, append(items));
+    expect(items).toEqual(['A', 'C', 'G', 'F', 'B', 'E', 'D']);
   });
 });

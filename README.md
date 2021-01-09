@@ -12,7 +12,8 @@ structure has multiple implementations (such as a stack implemented with an
 array and one implemented with a linked list), these will share the same test
 suite.
 
-Additionally, each data structure or algorithm file will be self-contained,
-meaning code will not be shared amongst files, even if it means code repitition.
-We want to maintain self-sufficiency and to be able to make modifications to an
-individual implementation without impacting others.
+Additionally, each data structure implementation will be self-contained, meaning
+code will not be shared amongst files, even if it means code repitition. We want
+to maintain self-sufficiency and to be able to make modifications to an
+individual implementation without impacting others.  Algorithms may utilize
+implemented data structures, but not vice-versa. 

@@ -78,7 +78,10 @@ class RecursuveGraphBST {
       }
 
       // two children
+      const minNodeInSubtree = this._minHelper(leftNode.right);
       
+
+
     }
 
   }
@@ -127,7 +130,7 @@ class RecursuveGraphBST {
 
   _maxHelper(node) {
     if (!node.right) {
-      return node.value;
+      return node;
     }
 
     return this._maxHelper(node.right);
@@ -138,12 +141,12 @@ class RecursuveGraphBST {
       return undefined;
     }
 
-    return this._maxHelper(this.root);
+    return this._maxHelper(this.root).value;
   }
 
   _minHelper(node) {
     if (!node.left) {
-      return node.value;
+      return node;
     }
 
     return this._minHelper(node.left);
@@ -154,7 +157,7 @@ class RecursuveGraphBST {
       return undefined;
     }
 
-    return this._minHelper(this.root);
+    return this._minHelper(this.root).value;
   }
 
   isEmpty() {

@@ -57,33 +57,7 @@ class RecursuveGraphBST {
       return false;
     }
 
-    if (node.left && node.left.value === value) {
-      const leftNode = node.left;
-
-      // no children
-      if (!leftNode.left && !leftNode.right) {
-        node.left = null;
-        return true;
-      }
-
-      // one child 
-      if (leftNode.left && !leftNode.right) {
-        node.left = leftNode.left;
-        return true;
-      }
-      
-      if (!leftNode.left && leftNode.right) {
-        node.left = leftNode.right;
-        return true;
-      }
-
-      // two children
-      const minNodeInSubtree = this._minHelper(leftNode.right);
-      
-
-
-    }
-
+    
   }
 
   remove(value) {

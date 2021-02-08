@@ -115,4 +115,14 @@ implementations.forEach(BST => {
 
     expect(bst.hasItem(3)).toBe(true);
   });
+
+  test(`${BST.name} - remove item from one item BST`, () => {
+    const bst = new BST();
+    bst.insert(5);
+
+    bst.remove(5);
+
+    expect(bst.hasItem(5)).toBe(false);
+    expect(bst.size()).toBe(0);
+  });
 });

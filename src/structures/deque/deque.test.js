@@ -1,10 +1,7 @@
 const ArrayDeque = require('./array-deque');
 const DoublyLinkedListDeque = require('./doubly-linked-list-deque');
 
-const implementations = [
-  ArrayDeque,
-  DoublyLinkedListDeque,
-];
+const implementations = [ArrayDeque, DoublyLinkedListDeque];
 
 implementations.forEach(Deque => {
   test(`${Deque.name} - create a new Deque`, () => {

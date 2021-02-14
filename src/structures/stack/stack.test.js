@@ -1,10 +1,7 @@
 const ArrayStack = require('./array-stack');
 const LinkedListStack = require('./linked-list-stack');
 
-const implementations = [
-  ArrayStack,
-  LinkedListStack,
-];
+const implementations = [ArrayStack, LinkedListStack];
 
 implementations.forEach(Stack => {
   test(`${Stack.name} - create a new Stack`, () => {
@@ -78,5 +75,4 @@ implementations.forEach(Stack => {
 
     expect(stack.isEmpty()).toBe(false);
   });
-
 });

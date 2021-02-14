@@ -1,10 +1,7 @@
 const ArrayQueue = require('./array-queue');
 const LinkedListQueue = require('./linked-list-queue');
 
-const implementations = [
-  ArrayQueue,
-  LinkedListQueue,
-];
+const implementations = [ArrayQueue, LinkedListQueue];
 
 implementations.forEach(Queue => {
   test(`${Queue.name} - create a new Queue`, () => {

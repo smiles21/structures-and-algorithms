@@ -12,12 +12,12 @@ Push a new value into the Priority Queue at the priority specified
 
 ### `pop()`
 
-Remove the element from the front of the Queue and return it.  Calling `pop` on
+Remove the element from the front of the Queue and return it. Calling `pop` on
 an empty Priority Queue returns `undefined`.
 
 ### `peek()`
 
-Return the front element of the Queue but do not remove it.  Calling `peek` on
+Return the front element of the Queue but do not remove it. Calling `peek` on
 an empty Priority Queue returns `undefined`.
 
 ### `isEmpty()`

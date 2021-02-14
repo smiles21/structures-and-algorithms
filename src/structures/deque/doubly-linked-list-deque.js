@@ -53,7 +53,7 @@ class LinkedListDeque {
     if (!this.head) {
       this.tail = null;
     }
-    
+
     return retVal;
   }
 

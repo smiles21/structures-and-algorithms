@@ -57,7 +57,6 @@ describe('Tree Traversals', () => {
     expect(items).toEqual([3, 5]);
   });
 
-
   test('in-order multiple node', () => {
     const items = [];
     const leftLeftGrandChild = new BinaryTreeNode(1);

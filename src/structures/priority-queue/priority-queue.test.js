@@ -1,8 +1,6 @@
 const LinkedListPriorityQueue = require('./linked-list-priority-queue');
 
-const implementations = [
-  LinkedListPriorityQueue,
-];
+const implementations = [LinkedListPriorityQueue];
 
 implementations.forEach(PriorityQueue => {
   test(`${PriorityQueue.name} - create a new PriorityQueue`, () => {
